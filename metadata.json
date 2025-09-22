@@ -1,0 +1,5 @@
+{
+  "name": "USDQS Platform",
+  "description": "An upgraded React-based platform for the USDQS stablecoin, featuring user authentication, virtual wallets, coin transfers, and a dynamic, multilingual interface.",
+  "requestFramePermissions": []
+}
