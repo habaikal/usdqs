@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { UsdBackingIcon, GlobalPaymentIcon, QuantumSecurityIcon, ReliabilityIcon, RegulatoryIcon, StabilityIcon, ScalabilityIcon, MxlyIcon } from './icons';
+import { UsdBackingIcon, GlobalPaymentIcon, QuantumSecurityIcon, ReliabilityIcon, RegulatoryIcon, StabilityIcon, ScalabilityIcon } from './icons';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
     <div className="card p-6 rounded-2xl text-center transform hover:-translate-y-2 transition-transform duration-300">
@@ -22,7 +22,6 @@ export const FeaturesSection: React.FC = () => {
         { key: 'regulatory', icon: <RegulatoryIcon /> },
         { key: 'stability', icon: <StabilityIcon /> },
         { key: 'scalability', icon: <ScalabilityIcon /> },
-        { key: 'mxly_integration', icon: <MxlyIcon /> },
     ];
 
     return (
