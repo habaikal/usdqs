@@ -1,0 +1,133 @@
+export const en = {
+  ticker: {
+    peg: 'PEG',
+    pegValue: '1 USDQS = $1.0001 USD',
+    totalSupply: 'Total Supply',
+    reservesBacking: 'Reserves Backing',
+    overcollateralized: 'Overcollateralized',
+    settlement24h: '24h Settlement',
+    activeChains: 'Active Chains',
+    multiChains: '16+ Multi-Chains'
+  },
+  nav: {
+    whyUsdqs: 'Why USDQS',
+    howItWorks: 'How It Works',
+    reserves: 'Transparency & Reserves',
+    chains: 'Supported Chains',
+    solutions: 'Institutional Solutions',
+    faq: 'FAQ',
+    attestation: 'Audit Attestation',
+    connectWallet: 'Connect Wallet',
+    connected: 'Connected',
+    live: 'Live'
+  },
+  hero: {
+    badge: 'Next-Generation Sovereign Settlement Layer',
+    title: 'USDQS Token',
+    phrases: [
+      'Institutional Multi-Chain Liquidity.',
+      'Zero-Friction Sovereign Settlement.',
+      'Continuous 102.4% Proof of Reserves.',
+      'The Neo-USDT Digital Dollar Protocol.'
+    ],
+    description: 'The institutional digital dollar engineered for sovereign-tier liquidity, sub-second cross-chain settlement, and uncompromised regulatory transparency. 100% backed by short-term U.S. Treasuries with a verifiable 102.4% reserve ratio.',
+    getUsdqs: 'Get USDQS / Mint',
+    learnHow: 'Learn How USDQS Works',
+    circulatingSupply: 'Circulating Supply',
+    collateralizedRatio: 'Collateralized Ratio',
+    nativeChains: 'Native Chains',
+    activeAttestation: 'Continuous Proof-of-Reserves Active'
+  },
+  reserves: {
+    badge: 'Cryptographic Proof of Reserves',
+    title: '100% Backed. Fully Liquid. Continuous Transparency.',
+    description: 'Every USDQS token in circulation is pegged 1-to-1 with the U.S. Dollar and fully collateralized by genuine sovereign reserves. We maintain an overcollateralized buffer ensuring liquidity under any market condition.',
+    verifiedReserves: 'Total Verified Reserves',
+    auditedBy: 'Directly audited by Tier-1 independent global accounting firm',
+    circulatingSupply: 'Circulating USDQS Supply',
+    sumActive: 'Sum of active tokens across all 16+ transport layers',
+    excessBuffer: 'Net Excess Reserve Buffer',
+    coverageRatio: 'Coverage Ratio: 102.4% (Fully Solvency Proof)',
+    tabCurrent: 'Current Reserve Allocation',
+    tabHistory: 'Historical Attestation Reports',
+    inspectReport: 'Inspect Full BDO Audit Statement',
+    allocationTitle: 'Reserves Asset Allocation',
+    breakdownLabel: '100.0% Backing Breakdown',
+    totalCollateral: 'Total Collateral'
+  },
+  simulator: {
+    badge: 'Interactive Protocol Sandbox',
+    title: 'How USDQS Works: Instant 1:1 Issuance',
+    description: 'Experience our frictionless primary issuance engine. Deposit standard fiat currency and receive exact 1:1 backed USDQS on your preferred blockchain with zero slippage.',
+    primaryConduit: 'Direct Primary Conduit',
+    zeroFee: '0.00% Issuance Fee',
+    youSend: 'You Send',
+    balance: 'Balance',
+    youReceive: 'You Receive (1:1 Exact Guaranteed)',
+    pegRatio: 'Peg Ratio 1.0000',
+    destinationChain: 'Select Destination Blockchain Network',
+    speed: 'Network Settlement Speed',
+    avgFee: 'Estimated Network Gas',
+    spread: 'Protocol Issuance Spread',
+    noSlippage: '0.00% (No Slippage)',
+    simulating: 'Processing Cryptographic Attestation...',
+    mintAction: 'Simulate 1:1 Minting',
+    redeemAction: 'Simulate 1:1 Redemption',
+    successMint: 'Successfully simulated 1:1 Mint of {amount} USDQS on {chain}!',
+    successRedeem: 'Successfully simulated 1:1 Redemption of {amount} USD to Bank Wire!'
+  },
+  solutions: {
+    badge: 'Universal Financial Architecture',
+    title: 'Empowering the Global Financial Frontier',
+    description: 'From individual cross-border remittance to multi-billion institutional settlement pipelines, USDQS powers frictionless liquidity across the decentralized economy.',
+    exploreBlueprint: 'Explore Institutional Blueprint'
+  },
+  chains: {
+    badge: 'Multi-Chain Sovereign Settlement',
+    title: 'Supported Blockchains & Smart Contracts',
+    description: 'USDQS is natively issued across high-throughput L1s and ultra-low fee L2 rollups. Select a protocol to inspect the verified contract address or integrate directly.',
+    activeNetworks: 'Active Networks',
+    avgSettlement: 'Avg Settlement',
+    finality: 'Finality',
+    avgFee: 'Avg Fee',
+    copyContract: 'Copy Contract Address',
+    copied: 'Copied!'
+  },
+  faq: {
+    badge: 'Knowledge Base & Protocols',
+    title: 'Frequently Asked Questions',
+    description: 'Learn more about USDQS mechanism, real-time proof of reserves, smart contract security, and institutional minting standards.',
+    searchPlaceholder: 'Search protocol specifications, reserves, peg maintenance...',
+    allTopics: 'All Topics',
+    noMatching: 'No matching questions found for "{query}".'
+  },
+  footer: {
+    tagline: 'USDQS is the premier sovereign-grade digital dollar protocol. Built for instant multi-chain settlement, frictionless institutional liquidity, and 100% verified asset transparency.',
+    overcollateralized: '102.4% Overcollateralized',
+    multiChains: '16+ Chains',
+    protocolGroup: 'USDQS Protocol',
+    assetsGroup: 'Asset Suite',
+    solutionsGroup: 'Solutions',
+    governanceGroup: 'Governance & Legal',
+    regulatoryTitle: 'Regulatory & Compliance Disclosure',
+    regulatoryText: 'USDQS tokens are digital representations of United States Dollar value pegged 1:1, issued under strict multi-jurisdictional compliance frameworks. USDQS reserves are maintained in unencumbered short-term U.S. government obligations and insured custodial cash accounts at federally supervised financial institutions.',
+    copyright: '© 2026 USDQS Protocol Foundation. All rights reserved. Original Neo-USDT Architecture.',
+    disclaimer: 'Zero IP or Trademark Affiliation with Tether Operations Limited.'
+  },
+  walletModal: {
+    title: 'Connect Web3 Wallet',
+    connectedTitle: 'Wallet Connected',
+    subtitle: 'Institutional USDQS Multi-Chain Gateway',
+    installMetaMask: 'MetaMask Not Detected - Click to Install',
+    connectTo: 'Connected to',
+    address: 'Address',
+    balanceUSDQS: 'Available USDQS',
+    usdValuation: 'USD Valuation',
+    nativeBalance: 'Native Gas Balance',
+    proceedMint: 'Proceed to Minting',
+    disconnect: 'Disconnect Wallet',
+    addToken: 'Add USDQS to MetaMask',
+    tokenAdded: 'USDQS Added to MetaMask!',
+    terms: 'By connecting, you accept the USDQS Protocol Institutional Terms of Service. Non-custodial, end-to-end encrypted.'
+  }
+};
