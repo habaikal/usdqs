@@ -7,7 +7,9 @@
     "dev": "vite",
     "server": "npm --prefix backend run dev",
     "server:build": "npm --prefix backend run build",
+    "prebuild": "node scripts/prepare-html.mjs dev",
     "build": "tsc -b && vite build",
+    "postbuild": "node scripts/prepare-html.mjs prod",
     "lint": "oxlint",
     "preview": "vite preview"
   },
