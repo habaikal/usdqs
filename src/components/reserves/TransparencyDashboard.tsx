@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { ReserveBreakdownChart } from './ReserveBreakdownChart';
-import { ShieldCheck, ExternalLink, Lock, CheckCircle, Database, Eye } from 'lucide-react';
+import { ShieldCheck, ExternalLink, Lock, CheckCircle, Database, Eye, Building2, Clock } from 'lucide-react';
 import { TRANSPARENCY_METRICS, HISTORICAL_ATTESTATIONS } from '../../data/reservesData';
 import { useTranslation } from '../../context/LanguageContext';
 
 interface TransparencyDashboardProps {
   onOpenAttestation: () => void;
+  currentCap?: number;
 }
 
-export const TransparencyDashboard: React.FC<TransparencyDashboardProps> = ({ onOpenAttestation }) => {
+export const TransparencyDashboard: React.FC<TransparencyDashboardProps> = ({
+  onOpenAttestation,
+  currentCap = TRANSPARENCY_METRICS.currentCap
+}) => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'current' | 'history'>('current');
 
@@ -22,7 +26,7 @@ export const TransparencyDashboard: React.FC<TransparencyDashboardProps> = ({ on
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
             <ShieldCheck className="w-4 h-4" />
             <span>{t.reserves.badge}</span>
           </div>
@@ -31,7 +35,7 @@ export const TransparencyDashboard: React.FC<TransparencyDashboardProps> = ({ on
             {t.reserves.title}
           </h2>
 
-          <p className="text-base text-slate-300 leading-relaxed">
+          <p className="text-base text-slate-300 leading-relaxed font-sans">
             {t.reserves.description}
           </p>
         </div>
@@ -53,15 +57,16 @@ export const TransparencyDashboard: React.FC<TransparencyDashboardProps> = ({ on
               </span>
             </div>
 
-            {/* Total USDQS in Circulation */}
+            {/* Total USDQS in Circulation & Initial Cap */}
             <div className="flex flex-col space-y-1">
               <span className="text-xs uppercase font-mono tracking-wider text-slate-400 flex items-center gap-1.5">
                 <Lock className="w-3.5 h-3.5 text-cyan-400" /> {t.reserves.circulatingSupply}
               </span>
-              <div className="text-3xl sm:text-4xl font-black text-slate-100 font-mono">
-                ${(TRANSPARENCY_METRICS.totalSupply).toLocaleString('en-US')}
+              <div className="text-3xl sm:text-4xl font-black text-slate-100 font-mono flex items-baseline gap-2">
+                <span>${(TRANSPARENCY_METRICS.totalSupply).toLocaleString('en-US')}</span>
+                <span className="text-xs text-slate-400 font-normal">/ ${(currentCap).toLocaleString('en-US')} Cap</span>
               </div>
-              <span className="text-xs text-slate-400">
+              <span className="text-xs text-cyan-300 font-mono">
                 {t.reserves.sumActive}
               </span>
             </div>
@@ -79,6 +84,18 @@ export const TransparencyDashboard: React.FC<TransparencyDashboardProps> = ({ on
               </div>
             </div>
 
+          </div>
+
+          {/* Regulatory Trust Signals */}
+          <div className="py-4 border-b border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-slate-300">
+            <div className="flex items-center gap-2">
+              <Building2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>수탁 기관: {TRANSPARENCY_METRICS.custodianBank}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-cyan-400 shrink-0" />
+              <span>상환 SLA: {TRANSPARENCY_METRICS.redemptionSLA}</span>
+            </div>
           </div>
 
           {/* Action Tabs & Attestation Trigger */}
@@ -138,11 +155,8 @@ export const TransparencyDashboard: React.FC<TransparencyDashboardProps> = ({ on
                         <td className="py-3 px-4 font-bold text-white">{row.period}</td>
                         <td className="py-3 px-4 text-slate-300">{row.attestationDate}</td>
                         <td className="py-3 px-4 text-emerald-400 font-bold">{row.excessReserves}</td>
-                        <td className="py-3 px-4 text-slate-200 flex items-center gap-1.5">
-                          <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-                          <span>{row.auditorReport}</span>
-                        </td>
-                        <td className="py-3 px-4 text-right text-cyan-400 font-mono">{row.reportId}</td>
+                        <td className="py-3 px-4 text-slate-300">{row.auditorReport}</td>
+                        <td className="py-3 px-4 text-right text-cyan-400">{row.reportId}</td>
                       </tr>
                     ))}
                   </tbody>

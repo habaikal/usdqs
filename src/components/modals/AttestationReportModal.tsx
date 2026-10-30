@@ -100,7 +100,7 @@ export const AttestationReportModal: React.FC<AttestationReportModalProps> = ({ 
                     <span className="text-[11px] text-slate-500">{asset.description}</span>
                   </div>
                   <div className="text-right shrink-0 ml-4">
-                    <span className="text-emerald-400 font-bold">${(asset.amountUSD / 1e9).toFixed(2)}B</span>
+                    <span className="text-emerald-400 font-bold">${(asset.amountUSD / 1e6).toFixed(2)}M</span>
                     <span className="text-[11px] text-slate-400 block">{asset.percentage}%</span>
                   </div>
                 </div>
@@ -111,8 +111,8 @@ export const AttestationReportModal: React.FC<AttestationReportModalProps> = ({ 
           {/* Audit Verification Stamp */}
           <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
             <div>
-              <span className="block text-slate-300 font-semibold">Report Reference: ATT-2026-Q3-0941</span>
-              <span>Signed at Geneva, Switzerland / New York, USA</span>
+              <span className="block text-slate-300 font-semibold">Report Reference: HKMA-USDQS-ATT-202610</span>
+              <span>Signed at Central, Hong Kong / Zurich, Switzerland</span>
             </div>
             <div className="text-emerald-400 font-bold border border-emerald-500/40 px-3 py-1.5 rounded-lg bg-emerald-950/40">
               CRYPTOGRAPHICALLY SEALED

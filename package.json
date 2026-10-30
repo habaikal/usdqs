@@ -1,10 +1,12 @@
 {
-  "name": "usdqs_neo-usdt",
+  "name": "usdqs-platform",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "npm --prefix backend run dev",
+    "server:build": "npm --prefix backend run build",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"

@@ -4,13 +4,19 @@ import './index.css'
 import App from './App.tsx'
 import { LanguageProvider } from './context/LanguageContext'
 import { Web3Provider } from './context/Web3Context'
+import { AuthProvider } from './context/AuthContext'
+import { AccountProvider } from './context/AccountContext'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <LanguageProvider>
-      <Web3Provider>
-        <App />
-      </Web3Provider>
+      <AuthProvider>
+        <AccountProvider>
+          <Web3Provider>
+            <App />
+          </Web3Provider>
+        </AccountProvider>
+      </AuthProvider>
     </LanguageProvider>
   </StrictMode>,
 )

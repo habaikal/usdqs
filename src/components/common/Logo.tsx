@@ -78,8 +78,8 @@ export const Logo: React.FC<LogoProps> = ({ className = '', showText = true, siz
             <span className="font-extrabold tracking-tight text-white font-['Plus_Jakarta_Sans'] text-xl">
               USD<span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">QS</span>
             </span>
-            <span className="px-1.5 py-0.5 text-[9px] font-semibold bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 rounded tracking-wider uppercase">
-              Neo-USDT
+            <span className="px-1.5 py-0.5 text-[9px] font-semibold bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 rounded tracking-wider uppercase font-mono">
+              QUANTUM STABLE
             </span>
           </div>
           <span className="text-[10px] tracking-wider text-slate-400 uppercase font-mono mt-0.5">

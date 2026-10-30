@@ -68,7 +68,7 @@ export const ReserveBreakdownChart: React.FC = () => {
             <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between font-mono">
               <span className="text-[11px] text-slate-500">{t.reserves.totalCollateral}</span>
               <span className="text-xs font-bold text-emerald-400">
-                ${(asset.amountUSD / 1e9).toFixed(2)} Billion
+                ${(asset.amountUSD / 1e6).toFixed(2)} Million
               </span>
             </div>
           </div>

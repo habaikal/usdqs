@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { QuantumOrbit } from './QuantumOrbit';
-import { ArrowRight, Play, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Play, ShieldCheck, Cpu } from 'lucide-react';
 import { TRANSPARENCY_METRICS } from '../../data/reservesData';
 import { useTranslation } from '../../context/LanguageContext';
 
@@ -8,12 +8,16 @@ interface HeroSectionProps {
   onOpenWallet: () => void;
   onOpenAttestation: () => void;
   onOpenHowItWorks: () => void;
+  onOpenUserPortal?: () => void;
+  currentCap?: number;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenWallet,
   onOpenAttestation,
-  onOpenHowItWorks
+  onOpenHowItWorks,
+  onOpenUserPortal,
+  currentCap = TRANSPARENCY_METRICS.currentCap
 }) => {
   const { t } = useTranslation();
 
@@ -23,7 +27,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    // Reset index if out of bounds on language change
     if (currentPhraseIndex >= phrases.length) {
       setCurrentPhraseIndex(0);
       setDisplayText('');
@@ -70,7 +73,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>{t.hero.badge}</span>
               <span className="text-slate-500">|</span>
-              <span className="text-cyan-300 font-mono">1 USDQS = $1.00 USD</span>
+              <span className="text-cyan-300 font-mono">1 USDQS = $1.0000 USD</span>
             </div>
 
             {/* Main Title & Dynamic Typing */}
@@ -83,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-sans">
                 {t.hero.description}
               </p>
             </div>
@@ -91,11 +94,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <button
-                onClick={onOpenWallet}
+                onClick={onOpenUserPortal || onOpenWallet}
                 className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 hover:brightness-110 shadow-xl shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer font-['Plus_Jakarta_Sans']"
               >
+                <Cpu className="w-4 h-4 text-slate-950" />
                 <span>{t.hero.getUsdqs}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-slate-950" />
               </button>
 
               <button
@@ -109,13 +113,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </button>
             </div>
 
-            {/* Key Trust Signals */}
-            <div className="pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-xl mx-auto lg:mx-0">
+            {/* Key Trust Signals (Spec & Dynamic Expandable Cap) */}
+            <div className="pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-xl mx-auto lg:mx-0 font-mono">
               <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono">
-                  ${(TRANSPARENCY_METRICS.totalSupply / 1e9).toFixed(1)}B
+                <div className="flex items-baseline gap-1">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-white">
+                    {(TRANSPARENCY_METRICS.totalSupply / 1e6).toFixed(1)}M
+                  </span>
+                  <span className="text-xs text-slate-400">/ {(currentCap / 1e6).toFixed(0)}M</span>
+                </div>
+                <span className="text-[11px] text-slate-400 mt-0.5 font-sans">
+                  {t.hero.circulatingSupply}
                 </span>
-                <span className="text-xs text-slate-400 mt-0.5">{t.hero.circulatingSupply}</span>
+                <span className="text-[10px] text-cyan-400 font-mono">
+                  (초기 상한 • 확장형 구조)
+                </span>
               </div>
 
               <button 
@@ -124,21 +136,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 title="View Attestation Statement"
               >
                 <div className="flex items-center gap-1">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-emerald-400">
                     {TRANSPARENCY_METRICS.reserveRatio}%
                   </span>
                   <ShieldCheck className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
                 </div>
-                <span className="text-xs text-slate-400 mt-0.5 group-hover:text-emerald-300">
+                <span className="text-[11px] text-slate-400 mt-0.5 group-hover:text-emerald-300 font-sans">
                   {t.hero.collateralizedRatio} →
+                </span>
+                <span className="text-[10px] text-emerald-400 font-mono">
+                  (HK 신탁 파산절연 보관)
                 </span>
               </button>
 
               <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">
-                  16+
+                <span className="text-2xl sm:text-3xl font-extrabold text-cyan-400">
+                  ERC-20
                 </span>
-                <span className="text-xs text-slate-400 mt-0.5">{t.hero.nativeChains}</span>
+                <span className="text-[11px] text-slate-400 mt-0.5 font-sans">
+                  {t.hero.nativeChains}
+                </span>
+                <span className="text-[10px] text-teal-400 font-mono">
+                  + PQC FIPS 204
+                </span>
               </div>
             </div>
 
